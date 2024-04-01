@@ -14,7 +14,7 @@ NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
 STOCK_API_KEY = "3O4WIGPYP879GH3F"
 NEWS_API_KEY = "433f8287c1b8476784b6953ccff0f06d"
 TWILIO_SID = 'AC78e617c34d0ca181b54d4abe0834115c'
-TWILIO_AUTH_TOKEN = '70d0a65748145668131514c279b88671'
+TWILIO_AUTH_TOKEN = 'df3da7cae679d0a51ab9314e1348bc8a'
 
 ## STEP 1: Use https://www.alphavantage.co/documentation/#daily
 # When stock price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
@@ -62,7 +62,12 @@ for x in STOCK_NAMES:
     #Work out the percentage difference in price between closing price yesterday and closing price the day before yesterday.
     diff_percent = round((difference / float(yesterday_closing_price)) * 100)
     print('price difference: ',diff_percent)
-
+    client = Client(TWILIO_SID, TWILIO_AUTH_TOKEN)
+    message = client.messages.create(
+        body='hello',
+        from_=VIRTUAL_TWILIO_NUMBER,
+        to=VERIFIED_NUMBER
+    )
 
         ## STEP 2: Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME.
 
