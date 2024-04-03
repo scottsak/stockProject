@@ -3,28 +3,20 @@ from twilio.rest import Client
 import os
 from dotenv import load_dotenv
 
-VIRTUAL_TWILIO_NUMBER = '+18669543817'
-VERIFIED_NUMBER = '+19258900267'
-
-STOCK_NAMES = ["RCKT", "SONY"]
-STOCK_NAME = "RCKT"
+STOCK_NAMES = ["RCKT", "SONY", "SWPPX"]
 COMPANY_NAME = "Rocket Pharmaceuticals Inc"
 
 STOCK_ENDPOINT = "https://www.alphavantage.co/query"
 NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
 
 load_dotenv()
+VIRTUAL_TWILIO_NUMBER = os.getenv('VIRTUAL_TWILIO_NUMBER')
+VERIFIED_NUMBER = os.getenv('VERIFIED_NUMBER')
 
 STOCK_API_KEY = os.getenv('STOCK_API_KEY')
 NEWS_API_KEY = os.getenv('NEWS_API_KEY')
 TWILIO_SID = os.getenv('TWILIO_SID')
 TWILIO_AUTH_TOKEN = os.getenv('TWILIO_AUTH_TOKEN')
-
-stock_params = {
-    "function": "TIME_SERIES_DAILY",
-    "symbol": STOCK_NAME,
-    "apikey": STOCK_API_KEY,
-}
 
 responses = [];
 for x in STOCK_NAMES:
