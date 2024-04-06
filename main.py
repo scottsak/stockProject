@@ -18,10 +18,10 @@ NEWS_API_KEY = os.getenv('NEWS_API_KEY')
 TWILIO_SID = os.getenv('TWILIO_SID')
 TWILIO_AUTH_TOKEN = os.getenv('TWILIO_AUTH_TOKEN')
 
-responses = [];
+responses = []
 for x in STOCK_NAMES:
     stock_params = {
-        "function": "TIME_SERIES_DAILY",
+        "function": "gTIME_SERIES_DAILY",
         "symbol": x,
         "apikey": STOCK_API_KEY,
     }
