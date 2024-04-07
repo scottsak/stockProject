@@ -23,7 +23,7 @@ print('scotttest', STOCK_API_KEY)
 responses = []
 for x in STOCK_NAMES:
     stock_params = {
-        "function": "gTIME_SERIES_DAILY",
+        "function": "TIME_SERIES_DAILY",
         "symbol": x,
         "apikey": STOCK_API_KEY,
     }
